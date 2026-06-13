@@ -7,7 +7,8 @@
 ![XGBoost](https://img.shields.io/badge/XGBoost-1.6+-green)
 ![Recall](https://img.shields.io/badge/Test%20Recall-95.88%25-brightgreen)
 
-[Live Link:](https://shareappio-b97y2apprhp3tddgyk4vyvy.streamlit.app/)
+🔗 **Live Demo:** [Click here to try the app](https://shareappio-b97y2apprhp3tddgyk4vyvy.streamlit.app/)
+
 ---
 
 ## 📌 Problem Statement
