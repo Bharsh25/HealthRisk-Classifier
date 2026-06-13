@@ -1,8 +1,8 @@
-# 🏥 NovaGen Health Risk Classifier
+# 🏥 Health Risk Classifier
 
 > A machine learning web application that classifies individuals as **Healthy** or **Unhealthy** based on physiological measurements, lifestyle factors, and medical history.
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app-link.streamlit.app)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://shareappio-b97y2apprhp3tddgyk4vyvy.streamlit.app/)
 ![Python](https://img.shields.io/badge/Python-3.8+-blue)
 ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.0+-orange)
 ![XGBoost](https://img.shields.io/badge/XGBoost-1.6+-green)
