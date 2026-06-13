@@ -9,7 +9,7 @@ matplotlib.use('Agg')
 
 # ── Page Config ──
 st.set_page_config(
-    page_title="NovaGen Health Risk Classifier",
+    page_title="Health Risk Classifier",
     page_icon="🏥",
     layout="wide"
 )
@@ -100,7 +100,7 @@ except Exception as e:
 st.markdown("""
 <div class="header-container">
     <div class="badge">🔬 Powered by Stacking Ensemble · 95.88% Recall</div>
-    <h1 class="header-title">🏥 NovaGen Health Risk Classifier</h1>
+    <h1 class="header-title">🏥 Health Risk Classifier</h1>
     <p class="header-subtitle">Enter patient health parameters to predict risk classification · RF + XGBoost + SVM → Logistic Regression</p>
 </div>
 """, unsafe_allow_html=True)
