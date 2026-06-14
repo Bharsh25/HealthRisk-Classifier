@@ -16,10 +16,6 @@ st.set_page_config(
     layout="wide"
 )
 
-st.write("📁 Files on Streamlit Cloud:")
-st.write(os.listdir('.'))
-st.write("📂 Current directory:")
-st.write(os.getcwd())
 # ── Custom CSS ──
 st.markdown("""
 <style>
@@ -89,12 +85,15 @@ def load_model():
 @st.cache_resource
 def load_xgb_model():
     with open('health_classifier.pkl', 'rb') as f:
-        stk = pickle.load(f)  # ← pickle not joblib
-    for name, estimator in stk.estimators_:
+        stk = pickle.load(f)
+    
+    # ← FIX: estimators_ returns (name, estimator, _) not (name, estimator)
+    for item in stk.estimators_:
+        name      = item[0]
+        estimator = item[1]
         if name == 'xgb':
             return estimator
     return None
-
 try:
     model, scaler = load_model()
     xgb_model = load_xgb_model()
