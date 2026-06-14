@@ -87,13 +87,8 @@ def load_xgb_model():
     with open('health_classifier.pkl', 'rb') as f:
         stk = pickle.load(f)
     
-    # ← FIX: estimators_ returns (name, estimator, _) not (name, estimator)
-    for item in stk.estimators_:
-        name      = item[0]
-        estimator = item[1]
-        if name == 'xgb':
-            return estimator
-    return None
+    # ✅ Use named_estimators_ — works across all versions
+    return stk.named_estimators_['xgb']
 try:
     model, scaler = load_model()
     xgb_model = load_xgb_model()
