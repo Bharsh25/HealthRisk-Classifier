@@ -74,14 +74,16 @@ st.markdown("""
 # ── Load Model ──
 @st.cache_resource
 def load_model():
-    model  = joblib.load('health_classifier.pkl')
-    scaler = joblib.load('scaler.pkl')
+    with open('health_classifier.pkl', 'rb') as f:
+        model = pickle.load(f)
+    with open('scaler.pkl', 'rb') as f:
+        scaler = pickle.load(f)
     return model, scaler
 
 @st.cache_resource
 def load_xgb_model():
     # Load XGBoost from inside stacking for SHAP
-    import joblib
+    import pickle
     stk = joblib.load('health_classifier.pkl')
     # Extract XGBoost base learner
     for name, estimator in stk.estimators_:
