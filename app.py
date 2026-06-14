@@ -6,6 +6,8 @@ import shap
 import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('Agg')
+import os
+import pickle
 
 # ── Page Config ──
 st.set_page_config(
@@ -14,6 +16,10 @@ st.set_page_config(
     layout="wide"
 )
 
+st.write("📁 Files on Streamlit Cloud:")
+st.write(os.listdir('.'))
+st.write("📂 Current directory:")
+st.write(os.getcwd())
 # ── Custom CSS ──
 st.markdown("""
 <style>
@@ -82,10 +88,8 @@ def load_model():
 
 @st.cache_resource
 def load_xgb_model():
-    # Load XGBoost from inside stacking for SHAP
-    import pickle
-    stk = joblib.load('health_classifier.pkl')
-    # Extract XGBoost base learner
+    with open('health_classifier.pkl', 'rb') as f:
+        stk = pickle.load(f)  # ← pickle not joblib
     for name, estimator in stk.estimators_:
         if name == 'xgb':
             return estimator
@@ -97,6 +101,8 @@ try:
     model_loaded = True
 except Exception as e:
     model_loaded = False
+    st.error(f"Real error: {str(e)}")  # ← shows exact error
+    st.stop()
 
 # ── Header ──
 st.markdown("""
